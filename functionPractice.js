@@ -106,3 +106,69 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 console.log(factorial(5));//120
+
+
+//11# Callback Function
+// A callback function is passed as an argument to another function and is executed after the completion of that function
+/** Output:
+ *  Data fetched
+    Processing the fetched data
+ */
+function fetchData(callback) {
+    setTimeout(() => {
+        console.log("Data fetched");
+        callback();  // Callback executed after data fetching
+    }, 1000);
+}
+
+function processData() {
+    console.log("Processing the fetched data");
+}
+fetchData(processData);
+
+
+//12# Currying Function
+// Currying is a technique where a function is transformed so that it takes arguments one at a time instead of all at once
+function curry(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        };
+    };
+}
+console.log(curry(1)(2)(3)); // 6
+
+
+// 13# Rest Parameters in Functions
+// A function that can accept a variable number of arguments using rest parameters
+function sum(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3, 4)); // 10
+
+
+// 14# Function with Default Parameters
+// You can define default values for function parameters, so the function will still work even if arguments are not passed
+function greet(name = "Guest") {
+    return `Hello, ${name}!`;
+}
+console.log(greet());          // "Hello, Guest!"
+console.log(greet("Alice"));   // "Hello, Alice!"
+
+
+// 15# Named Function Expression
+// This is like a regular function expression, but the function itself is given a name. It can be useful for recursion or debugging
+const factorial = function fact(n) {
+    if (n === 0) {
+        return 1;
+    }
+    return n * fact(n - 1);  // Named reference for recursion
+};
+console.log(factorial(5)); // 120
+
+
+
+
+
+
+
