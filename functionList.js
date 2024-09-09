@@ -102,14 +102,23 @@ async function fetchData() {
 }
 
 
+// 16. Method Function (Inside Object)
+const person = {
+    name: "Alice",
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+person.greet(); // Output: "Hello, my name is Alice"
 
 
+// 17. Pure Function
+//given the same inputs, will always return the same output and does not cause any side effects.
+function add(a, b) {
+    return a + b;  // Pure function, no side effects
+}
 
-
-
-
-
-
+console.log(add(2, 3)); // Output: 5
 
 
 
